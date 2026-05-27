@@ -19,9 +19,3 @@ Frontend (Tauri + React)  →  FastAPI Gateway
           └──────────┴──────────┴────────────┴─────────┘
                                     ↓
                              Workers (Celery)
-```
-
-## Quick Start
-```bash
-bash scripts/setup.sh
-```
