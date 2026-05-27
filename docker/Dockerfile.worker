@@ -1,0 +1,9 @@
+# Dockerfile.worker
+# Purpose : Container for the Celery background worker.
+#           Shares base image with API but runs Celery instead of Uvicorn.
+FROM python:3.11-slim
+WORKDIR /app
+COPY pyproject.toml .
+RUN pip install poetry && poetry install --no-dev
+COPY . .
+CMD ["celery", "-A", "apps.worker.main:app", "worker", "--loglevel=info"]
